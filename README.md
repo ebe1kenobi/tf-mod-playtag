@@ -4,9 +4,11 @@ See compil and doc at https://github.com/ebe1kenobi/towerfall-mod-kenobi
 
 See https://github.com/ebe1kenobi/tf-mod-playtag
 
+![playtag4](https://github.com/user-attachments/assets/c5ce717c-76d5-437c-b0e2-179f73a89bf5)
+
+
 ![image](https://github.com/user-attachments/assets/34584c87-a5d5-4e40-97d4-14b6521a6f75)
 
-![image](https://github.com/user-attachments/assets/5b1fc470-d110-4b3c-86df-8ebf5ea716b0)
 
 
 A new Game Mod to Play tag. Each round a player has It, and it must touch another player to pass It. All the player alive at the end of the round gain 1 point.
