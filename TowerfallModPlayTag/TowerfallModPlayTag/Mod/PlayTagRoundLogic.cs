@@ -11,7 +11,8 @@ namespace TowerfallModPlayTag
     private RoundEndCounter roundEndCounter;
     private bool done;
     private static int[] playerOrder; 
-    private static int currentPlayerOrderIndex; 
+    private static int currentPlayerOrderIndex;
+    private static int lastNumberOfPlayer = 0;
     public PlayTagRoundLogic(Session session)
       : base(session, true)
     {
@@ -20,10 +21,12 @@ namespace TowerfallModPlayTag
 
     private void resetPlayerAlreadyTag() {
       currentPlayerOrderIndex = -1;
+      lastNumberOfPlayer = 0;
       List<int> listPlayerIndex = new List<int>();
       foreach (Player player in this.Session.CurrentLevel.Players) {
 
         listPlayerIndex.Add(player.PlayerIndex);
+        lastNumberOfPlayer++;
       }
       listPlayerIndex.Shuffle();
       playerOrder = listPlayerIndex.ToArray();
@@ -127,11 +130,10 @@ namespace TowerfallModPlayTag
     }
 
     private int getNextTagPlayerIndex() {
-      if (playerOrder == null || currentPlayerOrderIndex == playerOrder.Length - 1) {
+      if (playerOrder == null || currentPlayerOrderIndex == playerOrder.Length - 1 || lastNumberOfPlayer != this.Session.CurrentLevel.Players.Count) {
         resetPlayerAlreadyTag();
       }
       currentPlayerOrderIndex++;
-
       return playerOrder[currentPlayerOrderIndex];
     }
   }

@@ -19,6 +19,7 @@ namespace TowerfallModPlayTag
     public int previousPlayTagCountDown = 0;
     public bool playTagCountDownOn = false;
     public readonly DateTime creationTime;
+    public int pauseDuration = 0;
     // End Play Tag var
 
     public ModPlayer(
@@ -110,8 +111,17 @@ namespace TowerfallModPlayTag
           delay = playTagDelay;
         }
         previousPlayTagCountDown = playTagCountDown;
-        playTagCountDown = delay - (int)(DateTime.Now - creationTime).TotalSeconds;
+        playTagCountDown = delay - (int)(DateTime.Now - creationTime).TotalSeconds + pauseDuration;
       }
+    }
+
+    public void addPauseDuration(int pauseDuration) {
+      this.pauseDuration += pauseDuration;
+    }
+    
+    public void resetPauseDuration()
+    {
+      this.pauseDuration = 0;
     }
   }
 }

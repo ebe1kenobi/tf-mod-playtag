@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Mod\MatchSettings.cs" />
     <Compile Include="Mod\PlayTagRoundLogic.cs" />
+    <Compile Include="Mod\PauseMenu.cs" />
     <Compile Include="Mod\TowerfallModPlayTag.cs" />
     <Compile Include="Mod\Pickup.cs" />
     <Compile Include="Mod\PlayTag.cs" />

@@ -361,7 +361,7 @@ namespace TowerfallModPlayTag
       player.playTagCountDown = player.playTagDelay;
       player.playTag = true;
       player.creationTime = DateTime.Now;
-
+      player.pauseDuration = 0;
       for (var i = 0; i < TFGame.Players.Length; i++)
       {
         Player p = player.Level.Session.CurrentLevel.GetPlayer(i);
