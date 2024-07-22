@@ -62,7 +62,7 @@ namespace TowerfallModPlayTag
       if (!playTagCountDownOn && this.Level.Session.MatchSettings.Mode != Modes.PlayTag)
       {
         //hide arrow
-        base.HUDRender(wrapped); 
+        base.HUDRender(wrapped);
       }
 
       // Active the arrows just after the explosion in case the tag is a survivor
@@ -86,15 +86,12 @@ namespace TowerfallModPlayTag
 
     public override void ShootArrow() 
     {
-      if (playTagCountDownOn) 
-        return;
-      // When MatchSettings.Mode == Modes.PlayTag we can Hurt people juste after the bomb explose ^^, it's a feature!
       base.ShootArrow();
     }
 
     public override void HurtBouncedOn(int bouncerIndex)
     {
-      if (playTagCountDownOn) 
+      if (playTagCountDownOn)
         return;
       // When MatchSettings.Mode == Modes.PlayTag we can Hurt people juste after the bomb explose ^^, it's a feature!
       base.HurtBouncedOn(bouncerIndex);

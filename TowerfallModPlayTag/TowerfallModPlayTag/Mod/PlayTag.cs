@@ -356,6 +356,8 @@ namespace TowerfallModPlayTag
       {
         return;
       }
+      Player.ShootLock = true;
+
       player.playTagCountDown = player.playTagDelay;
       player.playTag = true;
       player.creationTime = DateTime.Now;
