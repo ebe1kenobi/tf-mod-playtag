@@ -19,6 +19,7 @@ namespace TowerfallModPlayTag
     public int previousPlayTagCountDown = 0;
     public bool playTagCountDownOn = false;
     public readonly DateTime creationTime;
+    public int pauseDuration = 0;
     // End Play Tag var
 
     public ModPlayer(
@@ -62,7 +63,7 @@ namespace TowerfallModPlayTag
       if (!playTagCountDownOn && this.Level.Session.MatchSettings.Mode != Modes.PlayTag)
       {
         //hide arrow
-        base.HUDRender(wrapped); 
+        base.HUDRender(wrapped);
       }
 
       // Active the arrows just after the explosion in case the tag is a survivor
@@ -84,17 +85,14 @@ namespace TowerfallModPlayTag
       Indicator.Render();
     }
 
-    public override void ShootArrow() 
-    {
-      if (playTagCountDownOn) 
-        return;
-      // When MatchSettings.Mode == Modes.PlayTag we can Hurt people juste after the bomb explose ^^, it's a feature!
-      base.ShootArrow();
-    }
+    //public override void ShootArrow() 
+    //{
+    //  base.ShootArrow();
+    //}
 
     public override void HurtBouncedOn(int bouncerIndex)
     {
-      if (playTagCountDownOn) 
+      if (playTagCountDownOn)
         return;
       // When MatchSettings.Mode == Modes.PlayTag we can Hurt people juste after the bomb explose ^^, it's a feature!
       base.HurtBouncedOn(bouncerIndex);
@@ -113,8 +111,17 @@ namespace TowerfallModPlayTag
           delay = playTagDelay;
         }
         previousPlayTagCountDown = playTagCountDown;
-        playTagCountDown = delay - (int)(DateTime.Now - creationTime).TotalSeconds;
+        playTagCountDown = delay - (int)(DateTime.Now - creationTime).TotalSeconds + pauseDuration;
       }
+    }
+
+    public void addPauseDuration(int pauseDuration) {
+      this.pauseDuration += pauseDuration;
+    }
+    
+    public void resetPauseDuration()
+    {
+      this.pauseDuration = 0;
     }
   }
 }

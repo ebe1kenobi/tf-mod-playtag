@@ -14,6 +14,7 @@ namespace TowerfallModPlayTag
     [STAThread]
     public static void Main(string[] args) {
       try {
+        Logger.Init("towerfallmodplaytag");
         typeof(TFGame).GetMethod("$original_Main").Invoke(null, new object[] { args });
       } catch (Exception exception) {
         TFGame.Log(exception, false);
