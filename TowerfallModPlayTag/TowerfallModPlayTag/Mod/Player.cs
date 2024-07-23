@@ -85,10 +85,10 @@ namespace TowerfallModPlayTag
       Indicator.Render();
     }
 
-    public override void ShootArrow() 
-    {
-      base.ShootArrow();
-    }
+    //public override void ShootArrow() 
+    //{
+    //  base.ShootArrow();
+    //}
 
     public override void HurtBouncedOn(int bouncerIndex)
     {
