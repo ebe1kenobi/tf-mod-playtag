@@ -116,6 +116,7 @@ namespace TowerfallModPlayTag
 
     public void initPlayTag(int playerIndex)
     {
+      Player.ShootLock = true;
       foreach (Player p in this.Session.CurrentLevel.Players) 
       {
         p.playTagCountDown = p.playTagDelayModePlayTag;
