@@ -1,3 +1,5 @@
+**Deprecated** port to fortrise See https://github.com/ebe1kenobi/tf-mod-fortrise-gamemode-playtag
+
 See compil and doc at https://github.com/ebe1kenobi/towerfall-mod-kenobi
 
 # PlayTag mod
